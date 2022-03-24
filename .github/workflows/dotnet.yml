@@ -16,10 +16,14 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0
+        dotnet-version: 6.0.x
+        include-prerelease: true
     - name: Restore dependencies
       run: dotnet restore
+      working-directory: Lavanya.C.Sharp
     - name: Build
       run: dotnet build --no-restore
+      working-directory: Lavanya.C.Sharp
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      working-directory: Lavanya.C.Sharp
