@@ -16,7 +16,7 @@ Console.WriteLine($"Product of {a} and {b} is {c}");
 Print(++a, --b);
 
 c = a/b;
-Console.WriteLine($"quotient of {a} and {b} is {c}");
+Console.WriteLine($"Quotient of {a} and {b} is {c}");
 Print(++a, --b);
 
 c = a%b;
