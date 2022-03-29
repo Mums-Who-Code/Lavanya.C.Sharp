@@ -4,27 +4,23 @@ int b = 10;
 decimal c;
 
 c = a+b;
-Console.WriteLine($"Sum of {a} and {b} is {c}");
-Print(++a, --b);
+Print(ref a, ref b, c, "Sum");
 
 c = a-b;
-Console.WriteLine($"Difference of {a} and {b} is {c}");
-Print(++a, --b);
+Print(ref a, ref b, c,"Difference");
 
 c = a*b;
-Console.WriteLine($"Product of {a} and {b} is {c}");
-Print(++a, --b);
+Print(ref a, ref b, c, "Product");
 
 c = a/b;
-Console.WriteLine($"Quotient of {a} and {b} is {c}");
-Print(++a, --b);
+Print(ref a, ref b, c, "Quotient");
 
 c = a%b;
-Console.WriteLine($"Remainder of {a} and {b} is {c}");
-Print(++a, --b);
+Print(ref a, ref b, c, "Remainder");
 
-void Print(int a , int b)
+void Print(ref int a , ref int b, decimal c, string operation)
 {
-    Console.WriteLine("a is " + a);
-    Console.WriteLine("b is " + b);
+    Console.WriteLine($"{operation} of {a} and {b} is {c}");
+    Console.WriteLine("a is " + ++a);
+    Console.WriteLine("b is " + --b);
 }
