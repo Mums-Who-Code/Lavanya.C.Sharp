@@ -1,49 +1,50 @@
 ﻿
 using System.Collections.Generic;
 
-List<int> playerOne = new List<int> { 1, 5, 10, 25, 50 };
-List<int> playerTwo = new List<int> { 1, 5, 10, 25, 50 };
 Random random = new Random();
-
+int playerOne = 0;
+int playerTwo = 0;
 double playerOneTotal = 0;
 double playerTwoTotal = 0;
 
-for (int i = playerOne.Count; i >0; i--)
-{ 
-    int playerOneIndex = random.Next(i);
-    int playerOneCoin = playerOne[playerOneIndex];
-    int playerTwoIndex = random.Next(i);
-    int playerTwoCoin = playerTwo[playerTwoIndex];
-    playerOne.RemoveAt(playerOneIndex);
-    playerTwo.RemoveAt(playerTwoIndex);
+for (int i = 0; i < 5; i++)
+{
+    playerOne = random.Next(1, 100);
+    playerTwo = random.Next(1, 100);
 
-    Console.WriteLine($"PlayerOne presents coin {playerOneCoin}.");
-    Console.WriteLine($"PlayerTwo presents coin {playerTwoCoin}.");
+    Console.WriteLine($"PlayerOne presents coin {playerOne}.");
+    Console.WriteLine($"PlayerTwo presents coin {playerTwo}.");
 
-    if (playerOneCoin > playerTwoCoin)
+    if (playerOne > playerTwo)
     {
         playerOneTotal += 1;
+
+        Console.WriteLine($"PlayerOne wins round {i + 1}");
     }
-    else if (playerTwoCoin > playerOneCoin)
+    else if (playerOne < playerTwo)
     {
         playerTwoTotal += 1;
+
+        Console.WriteLine($"PlayerTwo wins round {i + 1}");
     }
-    else 
+    else
     {
         playerOneTotal += 0.5;
         playerTwoTotal += 0.5;
+
+        Console.WriteLine($"Game is tied in round {i + 1}");
     }
 }
 
 if (playerOneTotal > playerTwoTotal)
 {
-    Console.WriteLine($"PlayerOne won with {playerOneTotal} points.");
+    Console.WriteLine($"PlayerOne won with {playerOneTotal} points at the end of the game.");
 }
 else if (playerTwoTotal > playerOneTotal)
 {
-    Console.WriteLine($"PlayerTwo won with {playerTwoTotal} points.");
+    Console.WriteLine($"PlayerTwo won with {playerTwoTotal} points at the end of the game.");
 }
 else
 {
-    Console.WriteLine($"Game is tied with {playerOneTotal} points for both PlayerOne and playerTwo");
+    Console.WriteLine($"Game is tied with {playerOneTotal} points for both PlayerOne and playerTwo at the end.");
 }
